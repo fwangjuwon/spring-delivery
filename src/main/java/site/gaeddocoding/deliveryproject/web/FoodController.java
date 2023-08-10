@@ -1,4 +1,4 @@
 package site.gaeddocoding.deliveryproject.web;
 
-public class foodController {
+public class FoodController {
 }

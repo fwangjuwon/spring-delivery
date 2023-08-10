@@ -1,4 +1,4 @@
 package site.gaeddocoding.deliveryproject.service;
 
-public class foodService {
+public class FoodService {
 }
