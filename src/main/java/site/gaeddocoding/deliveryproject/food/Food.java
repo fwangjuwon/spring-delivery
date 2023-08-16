@@ -18,9 +18,6 @@ public class Food {
     @Column(nullable = false)
     private Integer foodPrice;//가격
     @Column(nullable = false)
-    private Integer foodAmt; //개수
-
-    @Column(nullable = false)
     private String foodSize; //사이즈
     @Column(nullable = false)
     private boolean sideDish; //사이드디쉬여부

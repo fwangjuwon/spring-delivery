@@ -15,7 +15,6 @@ public class FoodDto {
     private String foodName; //이름
 
     private Integer foodPrice;//가격
-    private Integer foodAmt; //개수
 
     private String foodSize; //사이즈
     private boolean sideDish; //사이드디쉬여부지
