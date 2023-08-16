@@ -26,7 +26,7 @@ public class FoodController {
         return "";
     }
 
-    @PutMapping("/foods")
+    @PutMapping("/foods/{id}")
     public String updateFood(){
         return "";
     }
