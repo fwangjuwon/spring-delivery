@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor //의존성주입
 @Service
 public class FoodService {
 
