@@ -1,16 +1,13 @@
 package site.gaeddocoding.deliveryproject.food;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RequiredArgsConstructor
-@Controller
+@RequiredArgsConstructor //생성자주입
+@RestController
 public class FoodController {
     //dependency injection
     private final FoodService foodService;
-    private final FoodRepository foodRepository;
-
     @GetMapping("/foods")
     public String selectAllFood(){
         return "";
