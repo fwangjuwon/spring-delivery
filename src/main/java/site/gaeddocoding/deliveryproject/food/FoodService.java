@@ -5,45 +5,45 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-@RequiredArgsConstructor //의존성주입
+@RequiredArgsConstructor // 의존성주입
 @Service
 public class FoodService {
 
-    //Dependency Injection
+    // Dependency Injection
     private final FoodRepository foodRepository;
 
-    //음식전체조회
-    public String searchAllFood(){
-    return "";
-    }
-
-    //음식단일조회
-    public String serachSingleFood(){
+    // 음식전체조회
+    public String searchAllFood() {
         return "";
     }
 
-    //음식등록
-    @Transactional
-    public String registerFood(){
+    // 음식단일조회
+    public String serachSingleFood() {
         return "";
     }
 
-    //음식수정
+    // 음식등록
     @Transactional
-    public String editFood(){
+    public void registerFood(Food food) {
+        foodRepository.save(food);
+    }
+
+    // 음식수정
+    @Transactional
+    public String editFood() {
         return "";
     }
 
-    //음식전체삭제
+    // 음식전체삭제
     @Transactional
 
-    public String deleteAllFood(){
+    public String deleteAllFood() {
         return "";
     }
 
-    //음식개별삭제
+    // 음식개별삭제
     @Transactional
-    public String deleteSingleFood(){
+    public String deleteSingleFood() {
         return "";
     }
 }
