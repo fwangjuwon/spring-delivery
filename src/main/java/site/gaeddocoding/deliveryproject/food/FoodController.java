@@ -32,18 +32,13 @@ public class FoodController {
     }
 
     @PutMapping("/foods/{id}")
-    public @ResponseBody Food updateFood(@RequestBody FoodDto foodDto, @PathVariable Integer id) {
-        Food food = foodService.editFood(foodDto, id);
-        return food;
-    }
+    public Food updateFood(@RequestBody FoodDto foodDto, @PathVariable Integer id) {
+        return foodService.editFood(foodDto, id);
+            }
 
-    @DeleteMapping("/foods")
-    public String deleteAllFood() {
-        return "";
-    }
 
     @DeleteMapping("/foods/{id}")
-    public String deleteSingleFood(@PathVariable Integer id) {
-        return "";
+    public void deleteSingleFood(@PathVariable Integer id) {
+        foodService.deleteSingleFood(id);
     }
 }
