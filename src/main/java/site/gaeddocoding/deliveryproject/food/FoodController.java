@@ -3,7 +3,6 @@ package site.gaeddocoding.deliveryproject.food;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -33,8 +32,9 @@ public class FoodController {
     }
 
     @PutMapping("/foods/{id}")
-    public String updateFood(@PathVariable Integer id) {
-        return "";
+    public @ResponseBody Food updateFood(@RequestBody FoodDto foodDto, @PathVariable Integer id) {
+        Food food = foodService.editFood(foodDto, id);
+        return food;
     }
 
     @DeleteMapping("/foods")

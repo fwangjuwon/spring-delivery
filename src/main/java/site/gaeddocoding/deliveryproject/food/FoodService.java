@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -34,13 +33,16 @@ public class FoodService {
 
     // 음식수정
     @Transactional
-    public String editFood() {
-        return "";
+    public Food editFood(FoodDto foodDto, Integer id) {
+        Food food = foodDto.toEntity();
+        food.setFoodName(food.getFoodName());
+        food.setFoodPrice(food.getFoodPrice());
+        food.setFoodSize(food.getFoodSize());
+        return food;
     }
 
     // 음식전체삭제
     @Transactional
-
     public String deleteAllFood() {
         return "";
     }
