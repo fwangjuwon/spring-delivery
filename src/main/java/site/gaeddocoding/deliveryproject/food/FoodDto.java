@@ -1,9 +1,11 @@
 package site.gaeddocoding.deliveryproject.food;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -15,5 +17,13 @@ public class FoodDto {
     private Integer foodPrice;// 가격
 
     private String foodSize; // 사이즈
-    private boolean sideDish; // 사이드디쉬여부지
+
+    public Food toEntity() {
+        return Food.builder()
+                .id(this.id)
+                .foodName(this.foodName)
+                .foodPrice(this.foodPrice)
+                .foodSize(this.foodSize)
+                .build();
+    }
 }

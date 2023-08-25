@@ -1,6 +1,10 @@
 package site.gaeddocoding.deliveryproject.food;
 
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -10,23 +14,26 @@ public class FoodController {
     private final FoodService foodService;
 
     @GetMapping("/foods")
-    public String selectAllFood(String foodName) {
-        return "";
+    public List<Food> selectAllFood() {
+        return foodService.searchAllFood();
+
     }
 
     @GetMapping("/foods/{id}")
-    public String selectSingleFood(@PathVariable Integer id) {
-        return "";
+    @ResponseBody
+    public Food selectSingleFood(@PathVariable Integer id) {
+        return foodService.serachSingleFood(id);
+
     }
 
     @PostMapping("/foods")
-    public String insertFood(Food food) {
-        foodService.registerFood(food);
-        return "성공!";
+    public Food insertFood(@RequestBody FoodDto foodDto) {
+        return foodService.registerFood(foodDto);
+
     }
 
     @PutMapping("/foods/{id}")
-    public String updateFood() {
+    public String updateFood(@PathVariable Integer id) {
         return "";
     }
 

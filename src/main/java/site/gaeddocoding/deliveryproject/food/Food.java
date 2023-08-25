@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +25,5 @@ public class Food {
     private Integer foodPrice;// 가격
 
     private String foodSize; // 사이즈
-
-    private boolean sideDish; // 사이드디쉬여부
 
 }

@@ -3,6 +3,9 @@ package site.gaeddocoding.deliveryproject.food;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 @RequiredArgsConstructor // 의존성주입
@@ -13,19 +16,20 @@ public class FoodService {
     private final FoodRepository foodRepository;
 
     // 음식전체조회
-    public String searchAllFood() {
-        return "";
+    public List<Food> searchAllFood() {
+        return foodRepository.findAll();
     }
 
     // 음식단일조회
-    public String serachSingleFood() {
-        return "";
+    public Food serachSingleFood(Integer id) {
+        return foodRepository.findById(id).get();
     }
 
     // 음식등록
     @Transactional
-    public void registerFood(Food food) {
-        foodRepository.save(food);
+    public Food registerFood(FoodDto foodDto) {
+        Food food = foodDto.toEntity();
+        return foodRepository.save(food);
     }
 
     // 음식수정
