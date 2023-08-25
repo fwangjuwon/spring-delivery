@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -34,12 +35,15 @@ public class FoodService {
 
     // 음식수정
     @Transactional
-    public Food editFood(FoodDto foodDto, Integer id) {
-        Food food = foodDto.toEntity();
-        food.setFoodName(food.getFoodName());
-        food.setFoodPrice(food.getFoodPrice());
-        food.setFoodSize(food.getFoodSize());
-        return food;
+    public void editFood(Food food, Integer id) {
+        Optional<Food> foodOp = foodRepository.findById(id);
+
+        if(foodOp.isPresent()){
+            Food foodEntity = foodOp.get();
+            foodEntity.setFoodName(food.getFoodName());
+            foodEntity.setFoodPrice(food.getFoodPrice());
+            foodEntity.setFoodSize(food.getFoodSize());
+        }
     }
 
 
