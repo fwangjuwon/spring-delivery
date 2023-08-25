@@ -32,8 +32,9 @@ public class FoodController {
     }
 
     @PutMapping("/foods/{id}")
-    public Food updateFood(@RequestBody FoodDto foodDto, @PathVariable Integer id) {
-        return foodService.editFood(foodDto, id);
+    @ResponseBody
+    public void updateFood( @PathVariable Integer id, @RequestBody Food food) {
+         foodService.editFood(food, id);
             }
 
 
