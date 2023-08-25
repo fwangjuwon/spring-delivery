@@ -2,6 +2,7 @@ package site.gaeddocoding.deliveryproject.food;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -41,15 +42,10 @@ public class FoodService {
         return food;
     }
 
-    // 음식전체삭제
-    @Transactional
-    public String deleteAllFood() {
-        return "";
-    }
 
     // 음식개별삭제
     @Transactional
-    public String deleteSingleFood() {
-        return "";
+    public void deleteSingleFood(Integer id) {
+      foodRepository.deleteById(id);
     }
 }
