@@ -2,6 +2,8 @@ package site.gaeddocoding.deliveryproject.food;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import site.gaeddocoding.deliveryproject.util.CustomException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -42,7 +44,7 @@ public class FoodService {
             foodEntity.setFoodPrice(food.getFoodPrice());
             foodEntity.setFoodSize(food.getFoodSize());
         } else {
-            throw new RuntimeException("id를 찾을 수 없습니다!!");
+            throw new CustomException("id를 찾을 수 없습니다!!");
         }
     }
 
@@ -54,7 +56,7 @@ public class FoodService {
         if (foodOp.isPresent()) {
             foodRepository.deleteById(id);
         } else {
-            throw new RuntimeException("해당 id에 데이터가 없습니다!!");
+            throw new CustomException("해당 id에 데이터가 없습니다!!");
         }
     }
 }

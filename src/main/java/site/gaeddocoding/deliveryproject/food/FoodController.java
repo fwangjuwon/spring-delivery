@@ -1,6 +1,8 @@
 package site.gaeddocoding.deliveryproject.food;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import site.gaeddocoding.deliveryproject.util.ResponseDto;
 
 import java.util.List;
@@ -14,8 +16,9 @@ public class FoodController {
     private final FoodService foodService;
 
     @GetMapping("/foods")
-    public List<Food> selectAllFood() {
-        return foodService.searchAllFood();
+    public ResponseEntity<?> selectAllFood() {
+        List<Food> foodDto= foodService.searchAllFood();
+        return new ResponseEntity<>(new ResponseDto<>(1, "전체 갖고오기 성공!", foodDto), HttpStatus.OK);
 
     }
 
