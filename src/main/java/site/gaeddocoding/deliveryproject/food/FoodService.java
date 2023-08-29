@@ -13,7 +13,6 @@ import javax.transaction.Transactional;
 @Service
 public class FoodService {
 
-    // Dependency Injection
     private final FoodRepository foodRepository;
 
     // 음식전체조회

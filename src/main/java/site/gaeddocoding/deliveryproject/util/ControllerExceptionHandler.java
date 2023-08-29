@@ -5,11 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice //모든 exception을 낚아챔
-public class ErrorHandler {
+@RestControllerAdvice
+public class ControllerExceptionHandler {
 
-@ExceptionHandler(CustomException.class)
+    @ExceptionHandler(CustomException.class)
     public ResponseEntity<?> apiException(CustomException e){
         return new ResponseEntity<>(new ResponseDto<>(-1, e.getMessage(), null), HttpStatus.BAD_REQUEST);
     }
+
 }
