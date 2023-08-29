@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import site.gaeddocoding.deliveryproject.user.User;
 
 @Builder
 @Data
