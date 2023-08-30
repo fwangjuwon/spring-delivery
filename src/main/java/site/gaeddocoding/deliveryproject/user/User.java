@@ -21,7 +21,7 @@ public class User {
     private Integer id;
 
     @Column(nullable = false)
-    private String userName; // 이름
+    private String username; // 이름
 
     @Column(length = 300, nullable = false)
     private String userHp;// 폰번호
