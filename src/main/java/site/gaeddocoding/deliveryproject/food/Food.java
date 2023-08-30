@@ -1,11 +1,11 @@
 package site.gaeddocoding.deliveryproject.food;
 
 import lombok.*;
+import site.gaeddocoding.deliveryproject.orders.Orders;
 
 import javax.persistence.*;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import site.gaeddocoding.deliveryproject.user.User;
 
 @Builder
 @Data
@@ -26,5 +26,9 @@ public class Food {
     private Integer foodPrice;// 가격
 
     private String foodSize; // 사이즈
+
+    @JoinColumn(name = "orderId")
+    @ManyToOne
+    private Orders orders;
 
 }
