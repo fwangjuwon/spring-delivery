@@ -10,15 +10,27 @@
 1. Food   
 ```
   id pk int
-  foodName String  //음식 이름
-  foodPrice int  //음식 가격
-  foodSize String  //음식 사이즈
-  sideDish boolean  //사이드 디쉬 여부 
+  foodName String  
+  foodPrice int  
+  foodSize String  
+  orderId (Food : Orders = n:1)
 ```  
 
-2. Order (추가예정)
-3. Store (추가예정)
-4. User (추가예정)
+2. Orders
+```
+  id pk int
+  orderQty int
+  orderPrice Long
+  userId (Orders : User = n:1) 
+```
+
+3. User
+```
+  id pk int
+  username String
+  userHp String
+  address String
+```
 
 
 ### REST API
@@ -36,8 +48,6 @@ Method를 사용하여 행위를 전달하기 때문에
   @PostMapping("/foods")    
 - 음식 수정  <br>
   @PutMapping("/foods/{id}")    
-- 음식 전체 삭제  <br>
-  @DeleteMapping("/foods")    
 - 음식 단일 삭제  <br>
   @DeleteMapping("/foods/{id}")    
 
@@ -45,4 +55,7 @@ Method를 사용하여 행위를 전달하기 때문에
 ![classuml](https://github.com/fwangjuwon/spring-delivery/assets/97711663/8f341f28-bffd-4cda-bed7-71fd4e827188)
 
 ### ERD
-![erd](https://github.com/fwangjuwon/spring-delivery/assets/97711663/3aba7fe0-9454-4057-9ba1-4e531550dfb8)
+![Screenshot_1](https://github.com/fwangjuwon/spring-delivery/assets/97711663/b16f0435-48f9-48aa-b713-7a923ceb18da)
+
+
+### Exception 처리
